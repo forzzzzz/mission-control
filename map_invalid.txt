@@ -1,0 +1,15 @@
+Just some random garbage text
+
+Kyiv Lviv
+
+Lviv Warsaw five_hundred
+
+Warsaw Berlin -570
+
+Berlin Prague 0
+
+Kyiv Odesa 475 extra_data 999
+
+Kyiv Kyiv 100
+
+   400
