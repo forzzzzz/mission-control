@@ -1,7 +1,9 @@
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using SmartTravelPlanner.Models;
 using Microsoft.Win32;
+using System.Windows.Controls;
 
 namespace SmartTravelPlanner
 {
@@ -12,6 +14,7 @@ namespace SmartTravelPlanner
         private CityGraph? _cityGraph;
         
         private bool _hasUnsavedChanges = false;
+        private bool _isLoadingData = false;
         
         public MainWindow()
         {
@@ -256,16 +259,45 @@ namespace SmartTravelPlanner
                 try
                 {
                     _traveler = Traveler.LoadFromFile(dialog.FileName);
+
+                    _isLoadingData = true;
                     TravelerNameTextBox.Text = _traveler.GetName();
                     TravelerLocationTextBox.Text = _traveler.GetLocation();
+                    _isLoadingData = false;
+
                     _hasUnsavedChanges = false;
                     UpdateUI();
+                    
+                    ShowInfo("Traveler successfully loaded.");
                 }
                 catch (Exception)
                 {
                     ShowError("Invalid travel data or file not found.");
                 }
             }
+        }
+
+        private void OnTravelerInfoChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_isLoadingData) return;
+
+            string name = TravelerNameTextBox.Text.Trim();
+            string location = TravelerLocationTextBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(name)) return;
+
+            if (_traveler == null)
+            {
+                _traveler = new Traveler(name);
+            }
+            else
+            {
+                _traveler.SetName(name);
+            }
+
+            _traveler.SetLocation(location);
+            _hasUnsavedChanges = true;
+            UpdateUI();
         }
     }
 }

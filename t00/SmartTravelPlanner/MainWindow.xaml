@@ -30,10 +30,10 @@
 
                         <StackPanel Grid.Column="0" Orientation="Vertical">
                             <TextBlock Text="Name" FontSize="14"/>
-                            <TextBox x:Name="TravelerNameTextBox" FontSize="18" Margin="0,4,0,0"/>
+                            <TextBox x:Name="TravelerNameTextBox" TextChanged="OnTravelerInfoChanged" FontSize="18" Margin="0,4,0,0"/>
 
                             <TextBlock Text="Location" FontSize="14" Margin="0,16,0,0"/>
-                            <TextBox x:Name="TravelerLocationTextBox" FontSize="18" Margin="0,4,0,0"/>
+                            <TextBox x:Name="TravelerLocationTextBox" TextChanged="OnTravelerInfoChanged" FontSize="18" Margin="0,4,0,0"/>
                         </StackPanel>
 
                         <Grid Grid.Column="2">

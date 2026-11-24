@@ -8,7 +8,7 @@ namespace SmartTravelPlanner.Models
 {
     public class Traveler : ICloneable
     {
-        readonly string _name;
+        string _name;
         string _currentLocation = string.Empty;
         List<string> _route = new();
 
@@ -39,6 +39,14 @@ namespace SmartTravelPlanner.Models
             }
 
             _currentLocation = Capitalize(location);
+        }
+        
+        public void SetName(string name)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                _name = name.Trim();
+            }
         }
 
         public void AddCity(string? city)
