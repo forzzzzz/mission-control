@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using SmartTravelPlanner.Models;
 using Microsoft.Win32;
-using System.Windows.Controls;
 
 namespace SmartTravelPlanner
 {
