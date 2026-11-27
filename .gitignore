@@ -1,3 +1,7 @@
 .idea/
 bin/
 obj/
+
+activity.drawio
+sequence.drawio
+usecase.drawio
